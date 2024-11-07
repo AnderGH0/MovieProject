@@ -1,0 +1,460 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+h2 {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+span {
+  color: #CC0000;
+}
+
+a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+.blur {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+}
+
+.cross {
+  text-align: center;
+  border: 1px solid white;
+  display: inline-block;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  padding: 2px 4px;
+  position: absolute;
+  inset: 0;
+  margin: 16px;
+  content: "";
+}
+.cross:hover {
+  cursor: pointer;
+}
+.cross::after, .cross::before {
+  content: "";
+  position: absolute;
+  background-color: #FFF;
+  width: 22px;
+  height: 1px;
+  top: 10px;
+  left: 0px;
+}
+.cross::after {
+  rotate: 45deg;
+}
+.cross::before {
+  rotate: -45deg;
+}
+
+swiper-container {
+  margin-top: 10px;
+  position: relative;
+}
+swiper-container swiper-slide {
+  width: 234px;
+  height: 351px;
+}
+swiper-container swiper-slide:hover {
+  cursor: pointer;
+}
+swiper-container swiper-slide:hover img {
+  filter: brightness(10%);
+}
+swiper-container swiper-slide:hover .hover-info {
+  display: block;
+}
+swiper-container swiper-slide img {
+  width: 100%;
+  height: 351px;
+}
+swiper-container swiper-slide .hover-info {
+  display: none;
+  font-family: "Inter";
+  font-weight: 700;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 76px 36px;
+  text-align: center;
+}
+swiper-container swiper-slide .hover-info .hover-title {
+  font-size: 20px;
+}
+swiper-container swiper-slide .hover-info .hover-year {
+  font-weight: 700;
+  margin-top: 23px;
+  font-size: 20px;
+  color: #B0B0B0;
+}
+swiper-container swiper-slide .hover-info .hover-genres {
+  margin-top: 24px;
+  font-size: 14px;
+}
+swiper-container swiper-slide .hover-info img {
+  margin-top: 20px;
+  width: 35px;
+  height: 34px;
+  filter: brightness(100%);
+}
+swiper-container swiper-slide .hover-info .hover-rating {
+  margin-top: 5px;
+  color: #CC0000;
+  font-size: 32px;
+}
+swiper-container::part(button-prev) {
+  content: url(img/arrow.png);
+  transform: rotate(180deg);
+}
+swiper-container::part(button-next) {
+  content: url(img/arrow.png);
+}
+
+body {
+  font-family: "Inria Sans";
+  background-color: #191B20;
+  height: 100vh;
+  position: relative;
+  color: #FFF;
+}
+body header {
+  background-color: #141517;
+  height: 100px;
+  align-items: center;
+}
+body header .container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 25px 0px;
+}
+body header .container img {
+  max-width: 163px;
+  height: 40px;
+}
+body header .container ul {
+  width: 380px;
+  display: flex;
+  list-style: none;
+  color: #FFF;
+  justify-content: space-between;
+  align-items: center;
+}
+body .main {
+  font-family: "Inter";
+}
+body .main .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 73px;
+}
+body .main .container .search {
+  display: flex;
+}
+body .main .container .search-input {
+  height: 44px;
+  border-radius: 8px 0 0 8px;
+  border: none;
+  padding: 18px 16px;
+  font-size: 1rem;
+}
+body .main .container .search-button {
+  border: none;
+  border-radius: 0 8px 8px 0;
+  width: 44px;
+  height: 44px;
+  background-color: #CC0000;
+}
+body .main .container .search-button:hover {
+  cursor: pointer;
+}
+body .main .container .search-results {
+  margin-top: 61px;
+  width: 100%;
+}
+body .main .container .latest-releases {
+  width: 100%;
+  margin-top: 95px;
+}
+body .main .container .movies-by-genre {
+  width: 1080px;
+  justify-items: center;
+  margin-top: 95px;
+}
+body .main .container .movies-by-genre h1 {
+  color: #FFF;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+}
+body .main .container .movies-by-genre ul {
+  width: 600px;
+  columns: 6 84px;
+  margin-top: 46px;
+}
+body .main .container .movies-by-genre ul li {
+  font-family: "Inter";
+  list-style: none;
+  color: #FFF;
+  font-weight: 400;
+  text-align: center;
+  height: 33px;
+  width: 84px;
+  padding-top: 6px;
+}
+body .main .container .movies-by-genre ul li:hover {
+  background-color: #CC0000;
+  border-radius: 8px;
+  cursor: pointer;
+}
+body .main .container .movies-by-genre .line {
+  margin-top: 26px;
+  height: 1px;
+  width: 600px;
+  background-color: #FFF;
+}
+body .main .container .movies-by-genre .display-genre {
+  width: 100%;
+}
+body .main .login-popup {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+body .main .login-popup .popup {
+  font-family: "Inria Sans";
+  z-index: 3;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 410px;
+  height: 608px;
+  background-color: #000;
+}
+body .main .login-popup .popup .container {
+  width: 288px;
+}
+body .main .login-popup .popup .container .signup-login {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  border-radius: 8px;
+}
+body .main .login-popup .popup .container .signup-login h1 {
+  font-size: 24px;
+  height: 100%;
+  width: 50%;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  align-content: center;
+}
+body .main .login-popup .popup .container .signup-login .signup {
+  border: 1px solid white;
+  border-radius: 8px 0 0 8px;
+}
+body .main .login-popup .popup .container .signup-login .login {
+  border: 1px solid white;
+  border-radius: 0 8px 8px 0;
+}
+body .main .login-popup .popup .container .signup-login .checked {
+  background-color: #CC0000;
+  border-radius: 0 8px 8px 0;
+  border: none;
+}
+body .main .login-popup .popup .container .username-input {
+  margin-top: 54px;
+}
+body .main .login-popup .popup .container .username-input, body .main .login-popup .popup .container .password-input {
+  width: 288px;
+  height: 44px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0 20px;
+  font-family: "Inter";
+}
+body .main .login-popup .popup .container .password {
+  height: 85px;
+  margin-top: 25px;
+}
+body .main .login-popup .popup .container .password .remember {
+  margin-top: 22px;
+  font-size: 16px;
+  font-weight: 200;
+  font-family: "Inter";
+}
+body .main .login-popup .popup .container .popup-button {
+  margin-top: 46px;
+  width: 100%;
+  height: 47px;
+  background-color: #CC0000;
+  color: #FFF;
+  font-family: "Inria Sans";
+  font-size: 18px;
+  font-weight: 400;
+  border: none;
+  border-radius: 8px;
+  letter-spacing: 2px;
+}
+body .main .login-popup .popup .container .forgot, body .main .login-popup .popup .container h3 {
+  text-align: left;
+  width: 100%;
+  font-family: "Inter";
+  font-weight: 200;
+  font-size: 1rem;
+}
+body .main .login-popup .popup .container .forgot {
+  margin-top: 30px;
+  color: #CC0000;
+}
+body .main .login-popup .popup .container h3 {
+  margin-top: 19px;
+}
+body .main .login-popup .popup .container h3 a {
+  color: #CC0000;
+}
+body .main .movie-popup {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 70px;
+}
+body .main .movie-popup .movie-modal {
+  z-index: 2;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 742px;
+  height: 526px;
+  background-color: #000;
+  padding: 0 73px;
+}
+body .main .movie-popup .movie-modal .container {
+  columns: 2 50%;
+  display: grid;
+  grid-template-areas: "image info";
+  gap: 58px;
+}
+body .main .movie-popup .movie-modal .container .movie-img {
+  grid-area: "image";
+  border: 1px solid hsla(0, 0%, 100%, 0.5);
+  border-radius: 1px;
+}
+body .main .movie-popup .movie-modal .container .movie-info {
+  grid-area: "info";
+  font-family: "Inria Sans";
+  letter-spacing: 1px;
+  color: #E9E9E9;
+}
+body .main .movie-popup .movie-modal .container .movie-info .movie-title {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23.98px;
+  text-transform: uppercase;
+  color: #CC0000;
+}
+body .main .movie-popup .movie-modal .container .movie-info .movie-year {
+  font-size: 14px;
+  line-height: 16.79px;
+}
+body .main .movie-popup .movie-modal .container .movie-info .movie-rating {
+  font-size: 20px;
+  color: #CC0000;
+  font-weight: 700;
+  line-height: 24.2px;
+  margin-top: 11px;
+}
+body .main .movie-popup .movie-modal .container .movie-info .movie-genres {
+  margin-top: 15px;
+  color: #E9E9E9;
+  font-size: 13.5px;
+  line-height: 16px;
+  font-weight: 0;
+  text-transform: uppercase;
+}
+body .main .movie-popup .movie-modal .container .movie-info .movie-synopsis {
+  color: hsl(0, 0%, 65%);
+  font-weight: 100;
+  font-size: 1rem;
+  line-height: 24px;
+  margin-top: 13px;
+  letter-spacing: 3%;
+}
+body .main .movie-popup .movie-modal .container .movie-info .movie-cast {
+  display: inline-block;
+  margin-top: 40px;
+}
+body .main .movie-popup .movie-modal .container .movie-info .movie-cast p {
+  position: absolute;
+  display: inline;
+  color: hsl(0, 0%, 65%);
+  margin-left: 15px;
+  font-size: 13.5px;
+  margin-right: 50px;
+}
+body footer {
+  background-color: #141517;
+  height: 186px;
+  width: 100%;
+  color: #FFF;
+  position: relative;
+  align-content: center;
+}
+body footer .container {
+  display: flex;
+  justify-content: space-between;
+}
+body footer .container img {
+  max-width: 163px;
+  height: 40px;
+}
+body footer .container ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  width: 374px;
+  align-items: center;
+}
+body footer .container ul li {
+  font-size: 14px;
+}
+body footer .container h3 {
+  align-self: center;
+  color: #B8B8B8;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+/* overflow:hidden to prevent scroll*/

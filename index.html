@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies DB</title>
+    <link rel="stylesheet" href="movies.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo"><span>BE</span>MOVIES</h1>
+            <ul>
+                <a href="#search"><li >SEARCH</li></a>
+                <a href="#latest"><li >LATEST</li></a>
+                <a href="#genres"><li >GENRES</li></a>
+                <a href="#"><li >REGISTER</li></a>
+                <a href="#"><li >SIGNIN</li></a>
+            </ul>
+        </div>
+    </header>
+    <div class="main">
+        <div class="container">
+            <div class="search">
+                <input class="search-input" type="text">
+                <button class="search-button"><img src="img/searchArrow.png" alt=""></button>
+            </div>
+            <div class="search-results" id="search">
+                <h2>Results for </h2>
+                <swiper-container class="image-container" navigation="true" space-between="20" slides-per-view="4" mousewheel="true">
+                    <swiper-slide>
+                        <img src="test/movie1.png" alt="">
+                    </swiper-slide>
+                    <swiper-slide><img src="test/movie2.png" alt="">
+                    </swiper-slide>
+                    <swiper-slide><img src="test/movie3.png" alt="">
+                    </swiper-slide>
+                    <swiper-slide><img src="test/movie4.png" alt="">
+                    </swiper-slide>
+                    <swiper-slide><img src="test/movie5.png" alt="">
+                    </swiper-slide>
+                    <swiper-slide><img src="test/movie6.png" alt="">
+                    </swiper-slide>
+                    <swiper-slide><img src="test/movie7.png" alt="">
+                    </swiper-slide>
+                    <swiper-slide><img src="test/movie8.png" alt=""></swiper-slide>
+                </swiper-container>
+            </div>
+            <div class="latest-releases" id="latest">
+                <h2>Latest releases</h2>
+                <swiper-container class="image-container" navigation="true" space-between="20" slides-per-view="4" mousewheel="true">
+                    <swiper-slide><img src="test/movie1.png" alt=""></swiper-slide>
+                    <swiper-slide><img src="test/movie2.png" alt=""></swiper-slide>
+                    <swiper-slide><img src="test/movie3.png" alt=""></swiper-slide>
+                    <swiper-slide><img src="test/movie4.png" alt=""></swiper-slide>
+                    <swiper-slide><img src="test/movie5.png" alt=""></swiper-slide>
+                    <swiper-slide><img src="test/movie6.png" alt=""></swiper-slide>
+                    <swiper-slide><img src="test/movie7.png" alt=""></swiper-slide>
+                    <swiper-slide><img src="test/movie8.png" alt=""></swiper-slide>
+                </swiper-container>
+            </div>
+            <div class="movies-by-genre" id="genres">
+                <h1>Movies by genre</h1>
+                <ul>
+                    <li>Comedy</li>
+                    <li>Drama</li>
+                    <li>Action</li>
+                    <li>Romance</li>
+                    <li>Fantasy</li>
+                    <li>Animation</li>
+                </ul>
+                <div class="line"></div>
+                <div class="display-genre">
+                    <swiper-container class="image-container" navigation="true" space-between="20" slides-per-view="4" mousewheel="true">
+                        <swiper-slide><img src="test/movie1.png" alt=""></swiper-slide>
+                        <swiper-slide><img src="test/movie2.png" alt=""></swiper-slide>
+                        <swiper-slide><img src="test/movie3.png" alt=""></swiper-slide>
+                        <swiper-slide><img src="test/movie4.png" alt=""></swiper-slide>
+                        <swiper-slide><img src="test/movie5.png" alt=""></swiper-slide>
+                        <swiper-slide><img src="test/movie6.png" alt=""></swiper-slide>
+                        <swiper-slide><img src="test/movie7.png" alt=""></swiper-slide>
+                        <swiper-slide><img src="test/movie8.png" alt=""></swiper-slide>
+                    </swiper-container>
+                </div>
+            </div>
+        </div>
+        <div class="login-popup">
+            <div class="blur"></div>
+            <div class="popup">
+                <div class="cross"></div>
+                <div class="container">
+                    <div class="signup-login">
+                        <h1 class="signup"><a href="#">SIGNUP</a></h1>
+                        <h1 class="login checked"><a href="#">LOGIN</a></h1>
+                    </div>
+                    <input class="username-input" type="text">
+                    <div class="password">
+                        <input class="password-input" type="text">
+                        <div class="remember">
+                            <label for="remember"><input type="checkbox" id="remember"> Remember me</label>
+                        </div>
+                    </div>
+                    <button class="popup-button">LOGIN</button>
+                    <a href="" class="forgot">I forgot my password</a>
+                    <h3>Not a member yet?<a> Sign up</a></h3>
+                </div>
+            </div>
+        </div>
+        <div class="movie-popup">
+            <div class="blur"></div>
+            <div class="movie-modal">
+                <div class="cross"></div>
+                <div class="container">
+                    <div class="movie-img"><img src="test/movie1.png" alt=""></div>
+                    <div class="movie-info">
+                        <div class="movie-title">The Godfather</div>
+                        <div class="movie-year">1972</div>
+                        <div class="movie-rating"><span><img src="img/star.png" alt=""></span> 8.7</div>
+                        <div class="movie-genres">Crime / Drama</div>
+                        <p class="movie-synopsis">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.</p>
+                        <div class="movie-cast">Cast: <p>Marlon Brando, Al Pacino, James Caan,
+                            Robert Duvall</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <h1 class="logo"><span>BE</span>MOVIES</h1>
+        <ul>
+            <a href="#search"><li >SEARCH</li></a>
+            <a href="#latest"><li >LATEST</li></a>
+            <a href="#genres"><li >GENRES</li></a>
+            <a href="#"><li >REGISTER</li></a>
+            <a href="#"><li >SIGNIN</li></a>
+        </ul>
+        <H3>@2023 - All rights reserved</H3>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="movies.js"></script>
+</body>
+</html>
+
