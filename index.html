@@ -23,7 +23,7 @@
     <div class="main">
         <div class="container">
             <div class="search">
-                <input class="search-input" type="text">
+                <input class="search-input" type="text" placeholder="Search ...">
                 <button class="search-button"><img src="img/searchArrow.png" alt=""></button>
             </div>
             <div class="search-results" id="search">
@@ -94,8 +94,12 @@
                         <h1 class="signup"><a href="#">SIGNUP</a></h1>
                         <h1 class="login checked"><a href="#">LOGIN</a></h1>
                     </div>
-                    <input class="username-input" type="text">
+                    <div class="username">
+                        <h3 id="popup-username">USERNAME</h3>
+                        <input class="username-input" type="text">
+                    </div>
                     <div class="password">
+                        <h3 id="popup-username">PASSWORD</h3>
                         <input class="password-input" type="text">
                         <div class="remember">
                             <label for="remember"><input type="checkbox" id="remember"> Remember me</label>
@@ -117,7 +121,9 @@
                     <div class="movie-info">
                         <div class="movie-title">The Godfather</div>
                         <div class="movie-year">1972</div>
-                        <div class="movie-rating"><span><img src="img/star.png" alt=""></span> 8.7</div>
+                        <div class="movie-rating">
+                            <span><img src="img/star.png" alt=""></span> 8.7
+                        </div>
                         <div class="movie-genres">Crime / Drama</div>
                         <p class="movie-synopsis">Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone barely survives an attempt on his life, his youngest son, Michael steps in to take care of the would-be killers, launching a campaign of bloody revenge.</p>
                         <div class="movie-cast">Cast: <p>Marlon Brando, Al Pacino, James Caan,

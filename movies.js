@@ -62,7 +62,7 @@ function displayResultsInSwiper(movies) {
     // ajout ce que doit contenir le container avec le swiper et le hover 
     searchContainer.innerHTML = `
         <h2>Résultats pour "${searchInput.value}"</h2>
-        <swiper-container class="image-container" navigation="true" space-between="20" slides-per-view="4" mousewheel="true">
+        <swiper-container class="image-container search-swiper" navigation="true" space-between="20" slides-per-view="4" mousewheel="true">
             ${movies.map(movie => `
                 <swiper-slide>
                     <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
@@ -79,7 +79,7 @@ function displayResultsInSwiper(movies) {
         </swiper-container>
     `;
     // ajout des pop up directement sinon n'attendant pas la fin du telechargement et donc ne s'affiche pas 
-    addMoviePopupListeners(movies);
+    addMoviePopupListeners(movies, docuement.querySelector("search-swiper"));
 }
 
 // afficher cela que on clique pour lancer la recherche 
@@ -102,7 +102,7 @@ async function displayUpcomingInSwiper() {
     }
     latestContainer.innerHTML = `
         <h2>Latest releases</h2>
-        <swiper-container class="image-container" navigation="true" space-between="20" slides-per-view="4" mousewheel="true">
+        <swiper-container class="image-container latest-swiper" navigation="true" space-between="20" slides-per-view="4" mousewheel="true">
             ${movies.map(movie => `
                 <swiper-slide>
                     <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
@@ -117,7 +117,7 @@ async function displayUpcomingInSwiper() {
             `).join('')}
         </swiper-container>
     `;
-    addMoviePopupListeners(movies);
+    addMoviePopupListeners(movies, document.querySelector(".latest-swiper"));
 }
 
 // appel pour afficher 
@@ -139,7 +139,7 @@ function displayMoviesGenre(movies) {
     }
 
     displayGenreContainer.innerHTML = `
-        <swiper-container class="image-container" navigation="true" space-between="20" slides-per-view="4" mousewheel="true">
+        <swiper-container class="image-container genres-swiper" navigation="true" space-between="20" slides-per-view="4" mousewheel="true">
             ${movies.map(movie => `
                 <swiper-slide>
                     <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}">
@@ -154,7 +154,7 @@ function displayMoviesGenre(movies) {
             `).join('')}
         </swiper-container>
     `;
-    addMoviePopupListeners(movies);
+    addMoviePopupListeners(movies, document.querySelector("genres-swiper"));
 }
 // ajout de l'event sur chaque li 
 genreList.forEach((li, index) => {
@@ -181,7 +181,7 @@ function openFilm(movie) {
     popupFilm.querySelector('.movie-img img').src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     popupFilm.querySelector('.movie-title').textContent = movie.title;
     popupFilm.querySelector('.movie-year').textContent = movie.release_date.split('-')[0];
-    popupFilm.querySelector('.movie-rating').textContent = movie.vote_average.toFixed(1);
+    popupFilm.querySelector('.movie-rating').innerHTML = `<span><img src="img/star.png" alt=""> ${movie.vote_average.toFixed(1)}`;
     // Convertir les IDs en genres 
     const genreNames = movie.genre_ids.map(id => genreListMap[id] || 'Unknown').join(' / ');
     popupFilm.querySelector('.movie-genres').textContent = genreNames;
@@ -196,14 +196,19 @@ function openFilm(movie) {
 // fermer quand on clique sur la croix 
 function closeFilmFunction() {
     popupFilm.style.display = 'none';
+    document.querySelector("body").style.overflow = "auto";
 }
 
+
 // ajout de l'ouverture des pop-ups pour chaque slide 
-function addMoviePopupListeners(movies) {
-    const imageFilms = document.querySelectorAll("swiper-slide");
+function addMoviePopupListeners(movies, swiper) {
+    const imageFilms = swiper.querySelectorAll("swiper-slide");
     
     imageFilms.forEach((slide, index) => {
-        slide.addEventListener('click', () => openFilm(movies[index]));
+        slide.addEventListener('click', () => {
+            document.querySelector("body").style.overflow = "hidden";
+            openFilm(movies[index]);
+        });
     });
 }
 
@@ -219,10 +224,12 @@ const closeLoginPopup = loginPopup.querySelector('.cross');
 // ouvrir
 function openLoginPopup() {
     loginPopup.style.display = 'block';
+    document.querySelector("body").style.overflow = "hidden";
 }
 //fermer
 function closeLoginPopupFunction() {
     loginPopup.style.display = 'none';
+    document.querySelector("body").style.overflow = "auto";
 }
 // event autant sur REGISTER que SIGNIN 
 openSignin.addEventListener('click', openLoginPopup);
