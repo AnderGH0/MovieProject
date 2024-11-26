@@ -185,7 +185,6 @@ function openFilm(movie) {
     // Convertir les IDs en genres 
     const genreNames = movie.genre_ids.map(id => genreListMap[id] || 'Unknown').join(' / ');
     popupFilm.querySelector('.movie-genres').textContent = genreNames;
-    //
     popupFilm.querySelector('.movie-synopsis').textContent = movie.overview;
     popupFilm.style.display = 'block';
 }
