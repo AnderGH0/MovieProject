@@ -82,6 +82,14 @@ function displayResultsInSwiper(movies) {
 }
 
 // afficher cela que on clique pour lancer la recherche 
+searchInput.addEventListener("keyup", (e)=> {
+    const words = searchInput.value.trim();
+    if(words && e.code === "Enter"){
+        handleSearch();
+        searchInput.value = "";
+    }
+});
+
 searchButton.addEventListener('click', handleSearch);
 
 //////////// Fonction pour récupérer les derniers films
@@ -296,5 +304,3 @@ tabs.forEach(tab => {
         }
     })
 });
-
-/* test pour push */
