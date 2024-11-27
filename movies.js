@@ -161,6 +161,7 @@ function displayMoviesGenre(movies) {
     addMoviePopupListeners(movies, document.querySelector(".genres-swiper"));
 }
 // ajout de l'event sur chaque li 
+
 genreList.forEach((li, index) => {
     li.addEventListener('click', async () => {
         const genreId = Object.keys(genreListMap)[index];
@@ -171,7 +172,15 @@ genreList.forEach((li, index) => {
     });
 });
 
-
+const navGenreList = document.querySelector(".movies-by-genre").querySelector("ul").querySelectorAll("li");
+navGenreList.forEach(tab => {
+    tab.addEventListener("click", () => {
+        if(!tab.classList.contains("genre-checked")){
+            navGenreList.forEach(tab => tab.classList.remove("genre-checked"));
+            tab.classList.add("genre-checked")
+        }
+    })  
+})
 
 
 

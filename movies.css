@@ -495,3 +495,8 @@ body footer .container h3 {
 .movie-modal::-webkit-scrollbar { 
   display: none;  /* Safari and Chrome */
 }
+
+.genre-checked {
+  background-color: #CC0000;
+  border-radius: 8px;
+}
