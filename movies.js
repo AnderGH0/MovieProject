@@ -19,6 +19,7 @@ const displayGenreContainer = document.querySelector('.display-genre');
 
 let genreListMap = {};
 
+
 // récupérer la liste des genres
 async function fetchGenres() {
     const response = await fetch('https://api.themoviedb.org/3/genre/movie/list', options);
@@ -33,8 +34,6 @@ async function fetchGenres() {
 
 // Appeler la fonction 
 fetchGenres();
-
-
 
 /////// fonction pour la recherche 
 
@@ -79,12 +78,18 @@ function displayResultsInSwiper(movies) {
         </swiper-container>
     `;
     // ajout des pop up directement sinon n'attendant pas la fin du telechargement et donc ne s'affiche pas 
-    addMoviePopupListeners(movies, docuement.querySelector("search-swiper"));
+    addMoviePopupListeners(movies, document.querySelector(".search-swiper"));
 }
 
 // afficher cela que on clique pour lancer la recherche 
 searchButton.addEventListener('click', handleSearch);
-
+searchInput.addEventListener("keyup", (e)=> {
+    const words = searchInput.value.trim();
+    if(words && e.code === "Enter"){
+        handleSearch();
+        searchInput.value = "";
+    }
+});
 //////////// Fonction pour récupérer les derniers films
 // API 
 async function LatestSearch() {
@@ -154,7 +159,7 @@ function displayMoviesGenre(movies) {
             `).join('')}
         </swiper-container>
     `;
-    addMoviePopupListeners(movies, document.querySelector("genres-swiper"));
+    addMoviePopupListeners(movies, document.querySelector(".genres-swiper"));
 }
 // ajout de l'event sur chaque li 
 genreList.forEach((li, index) => {
