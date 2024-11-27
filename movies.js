@@ -4,7 +4,7 @@ const options = {
     headers: {
         accept: 'application/json',
     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiOTkxOGM2ODNjNWRiMjA1ZTE5MzJiMjk0MDkxZmMwMyIsIm5iZiI6MTczMTA3MjY3Ny41NzQ0OTg3LCJzdWIiOiI2NzI4YzhjNWMwOTAxMDk1ODBmYTA3MTAiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.Ljvx6E0tkOA4F6h-Vd-3qQalnVQNVeFp8cJCRlODppc'
-  }
+    }
 };
 
 ///////////// éléments du DOM 
@@ -259,3 +259,5 @@ tabs.forEach(tab => {
         }
     })
 });
+
+/* test pour push */
