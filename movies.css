@@ -292,7 +292,6 @@ body .main .login-popup .popup .container .signup-login .login {
 }
 body .main .login-popup .popup .container .signup-login .checked {
   background-color: #CC0000;
-  border-radius: 0 8px 8px 0;
   border: none;
 }
 body .main .login-popup .popup .container .username-input {

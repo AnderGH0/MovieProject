@@ -19,7 +19,6 @@ const displayGenreContainer = document.querySelector('.display-genre');
 
 let genreListMap = {};
 
-
 // récupérer la liste des genres
 async function fetchGenres() {
     const response = await fetch('https://api.themoviedb.org/3/genre/movie/list', options);
@@ -240,3 +239,14 @@ function closeLoginPopupFunction() {
 openSignin.addEventListener('click', openLoginPopup);
 openRegister.addEventListener('click', openLoginPopup);
 closeLoginPopup.addEventListener('click', closeLoginPopupFunction);
+
+const tabs = document.querySelector(".signup-login").querySelectorAll("h1");
+tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+        if(!tab.classList.contains("checked")){
+            tabs.forEach(tab => {
+                tab.classList.toggle("checked");
+            })
+        }
+    })
+});
