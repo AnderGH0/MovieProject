@@ -19,19 +19,19 @@ const displayGenreContainer = document.querySelector('.display-genre');
 
 let genreListMap = {};
 
-// récupérer la liste des genres
-async function fetchGenres() {
+// // récupérer la liste des genres
+ async function fetchGenres() {
     const response = await fetch('https://api.themoviedb.org/3/genre/movie/list', options);
-    const data = await response.json();
+  const data = await response.json();
     
-    // Créer un objet pour lier les ID avec les noms 
-    genreListMap = data.genres.reduce((acc, genre) => {
-        acc[genre.id] = genre.name;
-        return acc;
-    }, {});
+// Créer un objet pour lier les ID avec les noms 
+ genreListMap = data.genres.reduce((acc, genre) => {
+acc[genre.id] = genre.name;
+return acc;
+}, {});
 }
 
-// Appeler la fonction 
+// // Appeler la fonction 
 fetchGenres();
 
 /////// fonction pour la recherche 
@@ -77,7 +77,8 @@ function displayResultsInSwiper(movies) {
         </swiper-container>
     `;
     // ajout des pop up directement sinon n'attendant pas la fin du telechargement et donc ne s'affiche pas 
-    addMoviePopupListeners(movies, document.querySelector(".search-swiper"));
+   addMoviePopupListeners(movies, document.querySelector(".search-swiper"));
+   
 }
 
 // afficher cela que on clique pour lancer la recherche 
@@ -90,6 +91,7 @@ searchInput.addEventListener("keyup", (e)=> {
 });
 
 searchButton.addEventListener('click', handleSearch);
+
 //////////// Fonction pour récupérer les derniers films
 // API 
 async function LatestSearch() {
@@ -123,13 +125,17 @@ async function displayUpcomingInSwiper() {
         </swiper-container>
     `;
     addMoviePopupListeners(movies, document.querySelector(".latest-swiper"));
+   
 }
+
 
 // appel pour afficher 
 displayUpcomingInSwiper();
 
 
 ///////////// fonction pour la recherche de genre 
+//LOAD GENRES ON WINDOWS LOAD
+
 // API 
 async function genreSearch(genreId) {
     const response = await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}`, options);
@@ -159,19 +165,57 @@ function displayMoviesGenre(movies) {
             `).join('')}
         </swiper-container>
     `;
-    addMoviePopupListeners(movies, document.querySelector(".genres-swiper"));
+  addMoviePopupListeners(movies, document.querySelector(".genres-swiper"));
+    
 }
-// ajout de l'event sur chaque li 
-
-genreList.forEach((li, index) => {
+// Ajout de l'event sur chaque li 
+genreList.forEach((li) => {
     li.addEventListener('click', async () => {
-        const genreId = Object.keys(genreListMap)[index];
-        if (genreId) {
-            const movies = await genreSearch(genreId);
-            displayMoviesGenre(movies);
+        switch (li.innerText.toUpperCase()) {
+            case "COMEDY":
+                const comedyMovies = await genreSearch(35);
+                displayMoviesGenre(comedyMovies);
+                break;
+            case "DRAMA":
+                const dramaMovies = await genreSearch(18);
+                displayMoviesGenre(dramaMovies);
+                break;
+            case "ACTION":
+                const actionMovies = await genreSearch(28);
+                displayMoviesGenre(actionMovies);
+                break;
+                case "ROMANCE":
+                    const romanceMovies = await genreSearch(10749);
+                    displayMoviesGenre(romanceMovies);
+                    break;
+            case "FANTASY":
+                const fantasyMovies = await genreSearch(14);
+                displayMoviesGenre(fantasyMovies);
+                break;
+            case "ANIMATION":
+                const animationMovies = await genreSearch(16);
+                displayMoviesGenre(animationMovies);
+                break;    
         }
     });
 });
+
+// Charger le genre "Comedy" par défaut lors du chargement de la page
+window.addEventListener("load", async () => {
+    const comedyMovies = await genreSearch(35); // Comedy ID
+    displayMoviesGenre(comedyMovies);
+});
+
+
+// erreur : genreList.forEach((li, index) => {
+//     li.addEventListener('click', async () => {
+//         const genreId = Object.keys(genreListMap)[index];
+//         if (genreId) {
+//             const movies = await genreSearch(genreId);
+//             displayMoviesGenre(movies);
+//         }
+//     });
+// });
 
 const navGenreList = document.querySelector(".movies-by-genre").querySelector("ul").querySelectorAll("li");
 navGenreList.forEach(tab => {
@@ -260,5 +304,3 @@ tabs.forEach(tab => {
         }
     })
 });
-
-/* test pour push */
