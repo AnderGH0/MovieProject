@@ -370,7 +370,7 @@ body .main .movie-popup .movie-modal {
   width: 742px;
   background-color: #000;
   padding: 0px 73px 30px;
-  overflow-y:scroll
+  overflow-y:scroll;
 }
 body .main .movie-popup .movie-modal .container {
   columns: 2 50%;
