@@ -125,6 +125,15 @@ displayUpcomingInSwiper();
 
 
 ///////////// fonction pour la recherche de genre 
+//LOAD GENRES ON WINDOWS LOAD
+window.addEventListener("load", ()=>{
+    genreOnLoad();
+})
+const genreOnLoad = async () => {
+    const response = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=primary_release_date.desc&vote_average.gte=0.1&with_genres=35`, options)
+    const myObj = await response.json(); 
+    displayMoviesGenre(movies)
+}
 // API 
 async function genreSearch(genreId) {
     const response = await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${genreId}`, options);
@@ -228,3 +237,6 @@ function closeLoginPopupFunction() {
 openSignin.addEventListener('click', openLoginPopup);
 openRegister.addEventListener('click', openLoginPopup);
 closeLoginPopup.addEventListener('click', closeLoginPopupFunction);
+
+// changer la facon de trouver les genre 
+// metrre un par defaut genre 
