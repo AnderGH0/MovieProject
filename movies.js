@@ -81,7 +81,6 @@ function displayResultsInSwiper(movies) {
 }
 
 // afficher cela que on clique pour lancer la recherche 
-searchButton.addEventListener('click', handleSearch);
 searchInput.addEventListener("keyup", (e)=> {
     const words = searchInput.value.trim();
     if(words && e.code === "Enter"){
@@ -89,6 +88,8 @@ searchInput.addEventListener("keyup", (e)=> {
         searchInput.value = "";
     }
 });
+
+searchButton.addEventListener('click', handleSearch);
 //////////// Fonction pour récupérer les derniers films
 // API 
 async function LatestSearch() {
